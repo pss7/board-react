@@ -1,0 +1,555 @@
+/* 공통 */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main {
+  padding: 100px 0;
+}
+
+/* 오류 메시지 */
+.errorMessage {
+  margin: 10px 0;
+  color: #E53935;
+}
+
+/* 공통 버튼 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  height: 48px;
+  padding: 0 25px;
+  border: 0;
+  border-radius: 8px;
+  background: #3E45EC;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #292FC5;
+}
+
+/* 보조 버튼 */
+.btn.secondaryBtn {
+  background: #666;
+}
+
+.btn.secondaryBtn:hover:not(:disabled) {
+  background: #444;
+}
+
+/* 삭제 버튼 */
+.btn.deleteBtn {
+  background: #E53935;
+}
+
+.btn.deleteBtn:hover:not(:disabled) {
+  background: #C62828;
+}
+
+/* 버튼 비활성화 */
+.btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+/* 폼 공통 영역 */
+.formWrap {
+  padding: 35px 30px;
+  border-top: 2px solid #222;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 폼 입력 항목 */
+.formItem {
+  margin-bottom: 25px;
+}
+
+.formItem:last-child {
+  margin-bottom: 0;
+}
+
+.formItem label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.formItem input,
+.formItem select,
+.formItem textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font-size: 16px;
+}
+
+.formItem input:focus,
+.formItem select:focus,
+.formItem textarea:focus {
+  border-color: #3E45EC;
+  outline: none;
+}
+
+.formItem input::placeholder,
+.formItem textarea::placeholder {
+  color: #aaa;
+}
+
+.formItem textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+/* 폼 하단 버튼 영역 */
+.formBtnBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+/* 폼 하단 버튼 오른쪽 정렬 */
+.formBtnBox.right {
+  justify-content: flex-end;
+}
+
+/* 게시판 */
+.boardWrap .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.boardWrap h1 {
+  margin-bottom: 50px;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 게시판 목록 */
+.boardListBox {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.boardTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #222;
+}
+
+.boardTable th,
+.boardTable td {
+  padding: 20px 15px;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.boardTable thead th {
+  background: #F7F8FA;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.boardTable tbody td {
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.boardTable tbody tr:hover {
+  background: #FAFBFF;
+}
+
+/* 게시글 제목 */
+.boardTable th:nth-child(2),
+.boardTable td:nth-child(2) {
+  text-align: left;
+}
+
+.boardTable td a {
+  display: block;
+  color: #222;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.boardTable td a:hover {
+  color: #3E45EC;
+}
+
+/* 게시판 열 너비 */
+.boardTable th:nth-child(1) {
+  width: 10%;
+}
+
+.boardTable th:nth-child(3) {
+  width: 15%;
+}
+
+.boardTable th:nth-child(4) {
+  width: 18%;
+}
+
+/* 게시판 하단 버튼 */
+.boardBtnBox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+/* 게시판 상세 */
+.boardDetailBox {
+  border-top: 2px solid #222;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 게시글 정보 */
+.boardDetailTopBox {
+  padding: 35px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.boardDetailTopBox h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+}
+
+.boardDetailInfo {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.boardDetailInfo span {
+  font-size: 15px;
+  color: #888;
+}
+
+/* 게시글 내용 */
+.boardDetailContent {
+  min-height: 350px;
+  padding: 40px 30px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.boardDetailContent p {
+  white-space: pre-wrap;
+}
+
+/* 게시판 상세 하단 버튼 */
+.boardDetailBox+.boardBtnBox {
+  justify-content: space-between;
+}
+
+/* 게시글 수정 및 삭제 버튼 영역 */
+.boardActionBox {
+  display: flex;
+  gap: 10px;
+}
+
+/* 게시글 정렬 */
+.boardSortBox {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.boardSortBox button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.boardSortBox button.active {
+  background: #3E45EC;
+  border-color: #3E45EC;
+  color: #fff;
+}
+
+/* 게시글 검색 */
+.boardSearchBox {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.boardSearchBox input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+}
+
+.boardSearchBox input:focus {
+  border-color: #3E45EC;
+}
+
+.boardSearchBox button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  background: #3E45EC;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.boardSearchBox button:hover {
+  background: #3037CC;
+}
+
+/* 게시판 페이지네이션 */
+.boardPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.boardPagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.boardPagination button:hover:not(:disabled) {
+  border-color: #3E45EC;
+  color: #3E45EC;
+}
+
+.boardPagination button.active {
+  border-color: #3E45EC;
+  background: #3E45EC;
+  color: #fff;
+}
+
+.boardPagination button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+/* 파일 첨부 */
+.fileUploadBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+/* 파일 선택 버튼 */
+.formItem .fileUploadBox .fileSelectBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #F7F8FA;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.formItem .fileUploadBox .fileSelectBtn:hover {
+  background: #E8EBF5;
+  border-color: #3E45EC;
+  color: #3E45EC;
+}
+
+.fileUploadBox input:focus-visible+.fileSelectBtn {
+  outline: 2px solid #3E45EC;
+  outline-offset: 2px;
+}
+
+/* 파일 선택 상태 */
+.fileGuide {
+  min-width: 0;
+  color: #888;
+  font-size: 14px;
+}
+
+/* 파일 안내 */
+.fileInfo {
+  margin-top: 8px;
+  color: #999;
+  font-size: 13px;
+}
+
+/* 파일 목록 */
+.fileList {
+  margin-top: 15px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.fileList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+}
+
+.fileList li+li {
+  border-top: 1px solid #eee;
+}
+
+.fileList li span {
+  min-width: 0;
+  overflow: hidden;
+  color: #555;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileList li button {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: #FFF1F1;
+  color: #E53935;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.fileList li button:hover {
+  background: #FFE2E2;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+
+  /* 공통 버튼 */
+  .btn {
+    min-width: 80px;
+    height: 44px;
+    padding: 0 15px;
+    font-size: 14px;
+  }
+
+  /* 공통 폼 */
+  .formWrap {
+    padding: 25px 15px;
+  }
+
+  .formItem {
+    margin-bottom: 20px;
+  }
+
+  .formItem input,
+  .formItem textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* 게시판 */
+  .boardWrap {
+    padding: 60px 0;
+  }
+
+  .boardWrap h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  /* 게시판 목록 */
+  .boardTable th,
+  .boardTable td {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+
+  .boardTable th:nth-child(1) {
+    width: 55px;
+  }
+
+  .boardTable th:nth-child(3) {
+    width: 90px;
+  }
+
+  .boardTable th:nth-child(4) {
+    width: 110px;
+  }
+
+  .boardTable {
+    min-width: 600px;
+  }
+
+  /* 게시판 상세 */
+  .boardDetailTopBox {
+    padding: 25px 15px;
+  }
+
+  .boardDetailTopBox h2 {
+    font-size: 21px;
+  }
+
+  .boardDetailInfo {
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  .boardDetailInfo span {
+    font-size: 13px;
+  }
+
+  .boardDetailContent {
+    min-height: 250px;
+    padding: 30px 15px;
+    font-size: 15px;
+  }
+
+}
