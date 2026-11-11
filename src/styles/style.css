@@ -6,6 +6,13 @@
 }
 
 main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contentBox {
   padding: 100px 0;
 }
 
@@ -130,14 +137,7 @@ main {
 }
 
 /* 게시판 */
-.boardWrap .container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.boardWrap h1 {
+.boardBox h1 {
   margin-bottom: 50px;
   font-size: 36px;
   font-weight: 700;
@@ -496,11 +496,11 @@ main {
   }
 
   /* 게시판 */
-  .boardWrap {
+  .boardBox {
     padding: 60px 0;
   }
 
-  .boardWrap h1 {
+  .boardBox h1 {
     margin-bottom: 30px;
     font-size: 28px;
   }

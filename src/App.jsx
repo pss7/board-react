@@ -1,11 +1,21 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
+import BoardListPage from "./pages/BoardListPage.jsx";
+import BoardDetailPage from "./pages/BoardDetailPage.jsx";
+import BoardCreatePage from "./pages/BoardCreatePage.jsx";
+import BoardUpdatePage from "./pages/BoardUpdatePage.jsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+
+      <Route path="/" element={<Navigate to="/board-list" replace />} />
+
+      <Route path="/board-list" element={<BoardListPage />}></Route>
+      <Route path="/board-detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board-create" element={<BoardCreatePage />}></Route>
+      <Route path="/board-update" element={<BoardUpdatePage />}></Route>
+
     </Routes>
   );
 }
