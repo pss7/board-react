@@ -12,9 +12,9 @@ function App() {
       <Route path="/" element={<Navigate to="/board-list" replace />} />
 
       <Route path="/board-list" element={<BoardListPage />}></Route>
-      <Route path="/board-detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board-detail/:id" element={<BoardDetailPage />}></Route>
       <Route path="/board-create" element={<BoardCreatePage />}></Route>
-      <Route path="/board-update" element={<BoardUpdatePage />}></Route>
+      <Route path="/board-update/:id" element={<BoardUpdatePage />}></Route>
 
     </Routes>
   );

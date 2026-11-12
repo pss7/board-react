@@ -1,7 +1,44 @@
 import { Link } from "react-router-dom";
 import Main from "../components/layout/Main";
+import { useEffect, useState } from "react";
+import { getBoards } from "../api/boardApi";
 
 export default function BoardListPage() {
+
+  /* 상태관리 */
+  const [boardData, setBoardData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  /* 게시글 목록 조회 */
+  useEffect(function () {
+
+    async function fetchBoard() {
+
+      try {
+
+        setLoading(true);
+        setError("");
+
+        const response = await getBoards();
+        setBoardData(response);
+
+      } catch (error) {
+
+        console.error(error);
+        setError("게시글 목록을 불러오지 못했습니다.");
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    }
+
+    fetchBoard();
+
+  }, []);
 
   return (
     <Main>
@@ -43,32 +80,47 @@ export default function BoardListPage() {
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>3</td>
-                    <td>
-                      <Link to="/board-detail">게시글3</Link>
-                    </td>
-                    <td>홍길동</td>
-                    <td>0000-00-00</td>
-                  </tr>
+                  {
+                    loading ? (
+                      <tr>
+                        <td colSpan="4">로딩중</td>
+                      </tr>
+                    ) : error ? (
+                      <tr>
+                        <td colSpan="4">{error}</td>
+                      </tr>
+                    ) : boardData.length > 0 ? (
 
-                  <tr>
-                    <td>2</td>
-                    <td>
-                      <Link to="/board-detail">게시글2</Link>
-                    </td>
-                    <td>홍길동</td>
-                    <td>0000-00-00</td>
-                  </tr>
+                      boardData.map(function (data) {
+                        return (
+                          <tr key={data.id}>
+                            <td>
+                              {data.id}
+                            </td>
+                            <td>
+                              <Link to={`/board-detail/${data.id}`}>
+                                {data.title}
+                              </Link>
+                            </td>
+                            <td>
+                              {data.author}
+                            </td>
+                            <td>
+                              {data.createdAt || "_"}
+                            </td>
+                          </tr>
+                        )
+                      })
 
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <Link to="/board-detail">게시글1</Link>
-                    </td>
-                    <td>홍길동</td>
-                    <td>0000-00-00</td>
-                  </tr>
+                    ) : (
+                      <tr>
+                        <td colSpan="4">
+                          등록된 게시글이 없습니다.
+                        </td>
+                      </tr>
+                    )
+                  }
+
                 </tbody>
               </table>
             </div>
